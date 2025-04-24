@@ -26,7 +26,7 @@ public class RegisterController {
     private final AccountService accountService;
 
     @Autowired
-    public RegisterController(AccountService accountService){
+    public RegisterController(AccountService accountService) {
         this.accountService = accountService;
     }
 
@@ -41,8 +41,6 @@ public class RegisterController {
         return "register";
     }
 
-    
-
     @PostMapping("/register")
     public String register(@Valid @ModelAttribute AccountDto accountDto, BindingResult result, RedirectAttributes ra) {
         try {
@@ -52,11 +50,11 @@ public class RegisterController {
             Account emailExist = this.accountService.selectByEmail(accountDto.getEmail());
             Account employeeExist = this.accountService.selectByEmployeeId(accountDto.getEmployeeId());
 
-            if(emailExist != null){
+            if (emailExist != null) {
                 result.rejectValue("email", "error.value", "登録済みのメールアドレスです");
                 errEmailFlg = true;
             }
-            if(employeeExist != null){
+            if (employeeExist != null) {
                 result.rejectValue("employeeId", "error.value", "登録済みの社員番号です");
                 errEmpIdFlg = true;
             }

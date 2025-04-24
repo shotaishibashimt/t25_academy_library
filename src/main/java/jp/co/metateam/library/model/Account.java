@@ -33,7 +33,6 @@ public class Account {
     private Integer authorizationType;
 
     @OneToMany(mappedBy = "account", cascade = CascadeType.ALL)
-   
 
     /** Getters */
 
@@ -56,7 +55,6 @@ public class Account {
     public Integer getAuthorizationType() {
         return authorizationType;
     }
-
 
     /** Setters */
 

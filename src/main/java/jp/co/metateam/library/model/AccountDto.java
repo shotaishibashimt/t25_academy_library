@@ -30,7 +30,7 @@ public class AccountDto {
     private String email;
 
     @NotEmpty(message = "パスワードは必須です")
-    @Size(min = 5, message="パスワードは5文字以上で入力してください")
+    @Size(min = 5, message = "パスワードは5文字以上で入力してください")
     private String password;
 
     private Integer authorizationType = 1;
