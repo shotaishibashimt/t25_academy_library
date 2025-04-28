@@ -3,6 +3,7 @@ package jp.co.metateam.library.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.validator.constraints.ISBN;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -32,6 +33,11 @@ public class BookController {
     private final BookMstService bookMstService;
 
     @Autowired
+
+    // 追加した↓
+    private BookMstService bookService;
+    //
+
     public BookController(BookMstService bookMstService) {
         this.bookMstService = bookMstService;
     }
@@ -54,6 +60,14 @@ public class BookController {
 
         return "book/add";// 書籍登録画面
     }
+    // //新たに追加した↓
+    // public String showtitle(Model model) {
+    // List<String> TitleList = new ArrayList<String>();
+    // List<String> IsbnList = new ArrayList<String>();
+    // model.addAttribute("bookMstDto", new BookMstDto());
+
+    // return "book/index"; // ここまで
+    // }
 
     @PostMapping("/book/add")
     public String addbook(@Valid @ModelAttribute BookMstDto bookMstDto, BindingResult result, RedirectAttributes ra,

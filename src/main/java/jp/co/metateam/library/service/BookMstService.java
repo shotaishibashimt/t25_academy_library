@@ -22,6 +22,18 @@ public class BookMstService {
     private final BookMstRepository bookMstRepository;
 
     @Autowired
+
+    //新たに追加↓
+    // private BookMstRepository bookRepository;
+
+    // public List<BookMst> getAllBooks() {
+    //     return bookMstRepository.findLimitedBook();
+    // }
+
+    // public Optional<BookMst> getBookById(Long id) {
+    //     return bookMstRepository.selectById(id);
+    // }
+//ここまで
     public BookMstService(BookMstRepository bookMstRepository) {
         this.bookMstRepository = bookMstRepository;
     }
@@ -30,6 +42,8 @@ public class BookMstService {
     public BookMst selectByIsbn(String isbn) {
         return bookMstRepository.findByIsbn(isbn);
     }
+
+
 
     public List<BookMstDto> findAvailableWithStockCount() {
         List<BookMst> books = this.bookMstRepository.findLimitedBook();
