@@ -17,28 +17,39 @@
                 <div class="page_title">書籍登録</div>
                 <div class="page_contents">
                     <form id="book_register_form" th:object="${bookMstDto}" th:action="@{/book/add}" method="post">
-                        <h4>*は必須項目です</h4>
-                        <h1>書籍名</h1>
-                        <input type="text" name="title" placeholder="書籍名を入力してください" th:field="*{title}" />
+                        <h4><span style="color: red;">*は必須項目です</span></h4>
+                        <span style="float: right;">
+                            <a th:href="@{/book/index}" class="link">← 一覧へ戻る</a>
+                        </span>
+                        <h1 style="font-size: 20px;">
+                            書籍名<span style="color: red;">*</span>
+                        </h1>
+                        <input type="text" name="title" placeholder="書籍名を入力" th:field="*{title}" size="120" />
                         <div th:if="${errTitleList}">
                             <ul>
                                 <li th:each="msg :${errTitleList}" th:text="${msg}" style="color:red"></li>
                             </ul>
                         </div>
 
-                        <h1>ISBN</h1>
-                        <input type="text" name="isbn" placeholder="ISBNを入力してください" th:field="*{isbn}" />
+                        <h1 style="font-size: 20px;">
+                            ISBN<span style="color: red;">*</span>
+                        </h1>
+                        <input type="text" name="isbn" placeholder="ISBNを入力" th:field="*{isbn}" size="120" />
                         <div th:if="${errIsbnList}">
                             <ul>
                                 <li th:each="msg :${errIsbnList}" th:text="${msg}" style="color:red"></li>
                             </ul>
                         </div>
                         <br>
-                        <button type="submit">保存</button>
+                        <br />
+                        <br />
+                        <div style="text-align: center;">
+                            <button type="submit"
+                                style="background-color: #90ee90; color: black; padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer;">
+                                保存
+                            </button>
+                        </div>
                         <div class="mb30 flexarea">
-                            <span>
-                                <a th:href="@{/book/index}" class="link">← 一覧へ戻る</a>
-                            </span>
                         </div>
                     </form>
                 </div>
