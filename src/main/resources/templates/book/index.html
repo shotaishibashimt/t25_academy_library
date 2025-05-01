@@ -14,11 +14,12 @@
             <div th:replace="~{common :: header}"></div>
             <div class="inner_contens">
                 <div class="page_title">書籍一覧</div>
-                
-                <!-- <button type="register">書籍登録</button> -->
-                <button class="button-link" onclick="window.location.href='http://localhost:8080/mt_library/book/add'">書籍登録</button>
+                <div class="button-wrapper">
 
-                <table class=books_table>
+                    <button class="button-link"
+                        onclick="window.location.href='http://localhost:8080/mt_library/book/add'">書籍登録</button>
+                </div>
+                <table class=books_table style="width: 60%; margin: 0 auto; border-collapse: collapse;">
                     <tr>
                         <th>書籍名</th>
                         <th>ISBN</th>
